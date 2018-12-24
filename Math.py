@@ -13,20 +13,21 @@ def menu():
 
     print("")
     print("Seattle 2017")
-    print("Bonjour Elouan")
+    print("Bonjour Mayeul")
     print("Bienvenue dans ton jeu de Math")
     print("Ton Papa")
     print("")
-    print("Quels operations veux tu faire ?")
+    print("Quelles operations veux tu faire ?")
     print("Type:")
     print("'1' for additions")
     print("'2' for soutractions")
     print("'3' for multiplications")
     print("'4' for divisions")
     print("'5' for all of the above")
+    print("'6' table de multiplications")
     print("'x' pour quitter")
     print("")
-    inp = user_input.res(6, False)
+    inp = user_input.res(7, False)
     print("")
     if inp != 'x':
         return int(inp) - 1
@@ -50,7 +51,12 @@ def operations(oper):
         if oper == 4:
             xx = randint(0, 3)
 
-        list_op = basic.to_be_cal(xx, 200)
+        max_int = 200
+        if oper == 5:
+            max_int = 11
+            xx = 2
+
+        list_op = basic.to_be_cal(xx, max_int)
         operator = list_op[0]
         a = list_op[1]
         b = list_op[2]
@@ -58,7 +64,7 @@ def operations(oper):
 
         d = str(a) + operator + str(b) + " = ? "
         print(d)
-        c = user_input.res(10000, True)
+        c = user_input.res(1000000, True)
 
         if c == 'x':
 
@@ -90,5 +96,9 @@ def operations(oper):
                 print("la bonne reponse est :" + str(e))
                 print("")
 
+
 if __name__ == "__main__":
+
     operations(menu())
+
+

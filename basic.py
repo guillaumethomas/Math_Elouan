@@ -1,4 +1,4 @@
-#Basic Operations
+# Basic Operations
 from random import randint
 ''''
 
@@ -9,11 +9,12 @@ from random import randint
 
 
 '''
-def to_be_cal(op,max_int):
-    op_type=[' + ', ' - ', ' x ', ' / ']
+def to_be_cal(op, max_int):
 
-    a=randint(1,max_int)
-    b=randint(1,max_int)
+    op_type = [' + ', ' - ', ' x ', ' / ']
+
+    a = randint(1, max_int)
+    b = randint(1, max_int)
 
     if b >= a:
         a, b = b, a
@@ -28,6 +29,6 @@ def to_be_cal(op,max_int):
 
     return res_list
 
+
 if __name__ == "__main__":
     print("Not meant to be called individually")
-
