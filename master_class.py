@@ -43,8 +43,8 @@ class Soustraction(Addition):
 class Multiplication(Addition):
     """Multplication"""
 
-    def __init__(self, max_value):
-        Addition.__init__(self, max_value)
+    def __init__(self, max_value, nb_type):
+        Addition.__init__(self, max_value, nb_type)
         self.operator = " X "
         self.op = mul
 
@@ -52,8 +52,8 @@ class Multiplication(Addition):
 class Division(Addition):
     """Division"""
 
-    def __init__(self, max_value):
-        Addition.__init__(self, max_value)
+    def __init__(self, max_value, nb_type):
+        Addition.__init__(self, max_value, nb_type)
         self.operator = " / "
         self.op = truediv
 
