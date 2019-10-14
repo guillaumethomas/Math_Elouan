@@ -9,6 +9,8 @@
 - [](https://www.thedigitalcatonline.com/blog/2014/05/19/method-overriding-in-python/)
 - [](https://www.geeksforgeeks.org/fraction-module-python/)
 - [global vs local](https://www.python-course.eu/python3_global_vs_local_variables.php)
+- [reflection](https://stackoverflow.com/questions/1796180/how-can-i-get-a-list-of-all-classes-within-current-module-in-python)
+- [](https://www.geeksforgeeks.org/reflection-in-python/)
 ## goal
 
 OO programing with one class and inheritance
