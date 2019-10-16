@@ -1,4 +1,5 @@
-import sys, inspect
+from sys import modules
+from inspect import isclass, getmembers
 from random import randint, uniform
 from operator import add, sub, mul, truediv
 from helper import xdict, freeze
@@ -72,7 +73,6 @@ class Fract:
         return Fraction(str(round(uniform(0,max_value),2)))
 
 
-
 class Decimal:
     def __init__(self):
         pass
@@ -86,8 +86,8 @@ nb_type_dic=freeze(nb_type_dic)
 
 
 def print_classes():
-    for name, obj in inspect.getmembers(sys.modules[__name__]):
-        if inspect.isclass(obj):
+    for name, obj in getmembers(modules[__name__]):
+        if isclass(obj):
             print(obj)
 
 if __name__ == "__main__":
