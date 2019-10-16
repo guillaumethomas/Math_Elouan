@@ -3,14 +3,15 @@ from random import randint
 from operator import add, sub, mul, truediv
 from helper import xdict, freeze
 
-class Addition:
-    """Addition"""
 
-    def __init__(self, max_value, nb_type):
+class Operation:
+    """Operation"""
+
+    def __init__(self, max_value, nb_type, operator, op):
         self.type = self.__class__.__name__
         self.max_value = max_value
-        self.operator = " + "
-        self.op = add
+        self.operator = operator
+        self.op = op
         self.nb_type = nb_type_dic[nb_type]()
         self.case = None
 
@@ -30,32 +31,29 @@ class Addition:
         return str(lst[0]) + self.operator + str(lst[1]) + " = ? "
 
 
+class Addition(Operation):
+    """Addition"""
 
-class Soustraction(Addition):
+    def __init__(self, max_value, nb_type):
+        Operation.__init__(self, max_value, nb_type, " + ", add)
+
+class Soustraction(Operation):
     """Soustraction"""
 
     def __init__(self, max_value, nb_type):
-        Addition.__init__(self, max_value, nb_type)
-        self.operator = " - "
-        self.op = sub
+        Operation.__init__(self, max_value, nb_type, " - ", sub)
 
-
-class Multiplication(Addition):
+class Multiplication(Operation):
     """Multplication"""
 
     def __init__(self, max_value, nb_type):
-        Addition.__init__(self, max_value, nb_type)
-        self.operator = " X "
-        self.op = mul
+        Operation.__init__(self, max_value, nb_type, " X ", mul)
 
-
-class Division(Addition):
+class Division(Operation):
     """Division"""
 
     def __init__(self, max_value, nb_type):
-        Addition.__init__(self, max_value, nb_type)
-        self.operator = " / "
-        self.op = truediv
+        Operation.__init__(self, max_value, nb_type, " / ", truediv)
 
 
 class IntNumb:
