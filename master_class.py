@@ -1,7 +1,8 @@
 import sys, inspect
-from random import randint
+from random import randint, uniform
 from operator import add, sub, mul, truediv
 from helper import xdict, freeze
+from fractions import Fraction
 
 
 class Operation:
@@ -63,14 +64,23 @@ class IntNumb:
     def val(self, max_value):
         return randint(0, max_value)
 
-class Fraction:
-    pass
+class Fract:
+    def __init__(self):
+        pass
+
+    def val(self, max_value):
+        return Fraction(str(round(uniform(0,max_value),2)))
+
 
 
 class Decimal:
-    pass
+    def __init__(self):
+        pass
 
-nb_type_dic = xdict(Int=IntNumb)
+    def val(self, max_value):
+        return round(uniform(0, max_value), 3)
+
+nb_type_dic = xdict(Int=IntNumb, Frac=Fract, Dec=Decimal)
 nb_type_dic=freeze(nb_type_dic)
 
 

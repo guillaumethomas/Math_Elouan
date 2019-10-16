@@ -7,7 +7,9 @@ def print_classes(max_int):
     for name, obj in inspect.getmembers(sys.modules[__name__]):
         if inspect.isclass(obj):
             # print(obj.__doc__)
-            dic[obj.__name__] = obj(max_int, "Int")
+            # dic[obj.__name__] = obj(max_int, "Int")
+            # dic[obj.__name__] = obj(max_int, "Frac")
+            dic[obj.__name__] = obj(max_int, "Dec")
 
     return dic
 
