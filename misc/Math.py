@@ -2,9 +2,9 @@
 """First program"""
 from random import randint
 from time import time
-from basic import to_be_cal
-from frac import frac_to_be_cal
-from user_input import res
+from misc.basic import to_be_cal
+from misc.frac import frac_to_be_cal
+from misc.user_input import res
 
 # test
 

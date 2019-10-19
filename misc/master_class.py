@@ -9,53 +9,66 @@ from fractions import Fraction
 class Operation:
     """Operation"""
 
-    def __init__(self, max_value, nb_type, operator, op):
+    def __init__(self, max_value, nb_type, operator, op, size_op):
         self.type = self.__class__.__name__
         self.max_value = max_value
+        self.size_op = size_op
         self.operator = operator
         self.op = op
         self.nb_type = nb_type_dic[nb_type]()
         self.case = None
 
+
     def __str__(self):
         return "member of {}".format(self.type)
 
     def new_case(self):
-        a = self.nb_type.val(self.max_value)
-        b = self.nb_type.val(self.max_value)
-        if b > a:
-            a, b = b, a
-        return [a, b, self.op(a, b)]
+
+        lst = []
+        for _ in range(self.size_op):
+            lst.append(self.nb_type.val(self.max_value))
+        lst.sort(reverse=True)
+
+        res = lst[0]
+        for i in lst[1:]:
+            res = self.op(res, i)
+
+        lst.append(res)
+
+        return lst
+
 
     def pr_case(self):
         lst = self.new_case()
         self.case = lst
-        return str(lst[0]) + self.operator + str(lst[1]) + " = ? "
+        lst = [str(x) for x in lst]
+        ret_str = self.operator.join(lst[:-1]) + " = ? "
+        return ret_str
 
 
 class Addition(Operation):
     """Addition"""
 
-    def __init__(self, max_value, nb_type):
-        Operation.__init__(self, max_value, nb_type, " + ", add)
+    def __init__(self, max_value, nb_type, size_op):
+        Operation.__init__(self, max_value, nb_type, " + ", add, size_op)
 
 class Soustraction(Operation):
     """Soustraction"""
 
-    def __init__(self, max_value, nb_type):
-        Operation.__init__(self, max_value, nb_type, " - ", sub)
+    def __init__(self, max_value, nb_type, size_op):
+        Operation.__init__(self, max_value, nb_type, " - ", sub, size_op)
 
 class Multiplication(Operation):
     """Multplication"""
 
-    def __init__(self, max_value, nb_type):
-        Operation.__init__(self, max_value, nb_type, " X ", mul)
+    def __init__(self, max_value, nb_type, size_op):
+        Operation.__init__(self, max_value, nb_type, " X ", mul, size_op)
 
 class Division(Operation):
     """Division"""
 
-    def __init__(self, max_value, nb_type):
-        Operation.__init__(self, max_value, nb_type, " / ", truediv)
+    def __init__(self, max_value, nb_type,size_op):
+        Operation.__init__(self, max_value, nb_type, " / ", truediv, size_op)
 
 
 class IntNumb:

@@ -11,6 +11,9 @@
 - [global vs local](https://www.python-course.eu/python3_global_vs_local_variables.php)
 - [reflection](https://stackoverflow.com/questions/1796180/how-can-i-get-a-list-of-all-classes-within-current-module-in-python)
 - [](https://www.geeksforgeeks.org/reflection-in-python/)
+- [](https://stackoverflow.com/questions/3798835/understanding-get-and-set-and-python-descriptors)
+- [](http://exploreflask.com/en/latest/organizing.html)
+- [](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-ii-templates)
 ## goal
 
 OO programing with one class and inheritance

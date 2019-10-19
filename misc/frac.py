@@ -1,6 +1,6 @@
 from fractions import Fraction
 from random import randint
-from basic import to_be_cal
+from misc.basic import to_be_cal
 
 
 def gen_frac(max_val):
